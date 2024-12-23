@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Evaluation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .form-container { 
+      max-width: 800px;
+      margin: auto;
+      background: #c4d2e1;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 5px;
+    }
+    input, select, textarea, button {
+      width: 98%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table th, table td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    table th {
+      background-color: #f9f9f9;
+    }
+    button {
+      background-color:#0066ff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5271ff
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Call Evaluation Form</h2>
+    <form id="callEvaluationForm">
+      <label for="counselorName">Name of Counselor</label>
+      <input type="text" id="counselorName" name="counselorName" placeholder="Enter counselor name" required>
+
+      <label for="customerId">Customer ID/Call ID</label>
+      <input type="text" id="customerId" name="customerId" placeholder="Enter customer or call ID" required>
+
+      <label for="callDate">Date of Call</label>
+      <input type="date" id="callDate" name="callDate" required>
+
+      <label for="callTime">Time of Call</label>
+      <input type="time" id="callTime" name="callTime" required>
+
+      <label for="callerContact">Caller Contact Number</label>
+      <input type="tel" id="callerContact" name="callerContact" placeholder="Enter contact number" required>
+
+      <label for="callRefId">Call Ref. ID</label>
+      <input type="text" id="callRefId" name="callRefId" placeholder="Enter call reference ID" required>
+
+      <label for="callDuration">Duration of Call</label>
+      <input type="text" id="callDuration" name="callDuration" placeholder="Enter duration of the call" required>
+
+      <label for="programCategory">Program Category</label>
+      <input type="text" id="programCategory" name="programCategory" placeholder="Enter program category" required>
+
+      <label for="evaluationDate">Call Evaluation Date</label>
+      <input type="datetime-local" id="evaluationDate" name="evaluationDate" value="2024-12-20" required>
+
+      <label for="auditorName">Auditor Name</label>
+      <input type="text" id="auditorName" name="auditorName" placeholder="Enter auditor name" required>
+
+      <label for="callType">Call Type</label>
+      <select id="callType" name="callType" required>
+        <option value="">--Select Call Type--</option>
+        <option value="incoming">Incoming</option>
+        <option value="outgoing">Outgoing</option>
+      </select>
+
+    <h3>Evaluation Parameters</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Parameters</th>
+            <th>Evaluation</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Did the counselor extend a courteous and professional greeting at the start of the interaction?</td>
+            <td>
+              <select class="evaluation" data-points="5">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">NA</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor effectively address the customer's query?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor provide an appropriate solution to the customer's query?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor deliver correct and accurate information to the customer?</td>
+            <td>
+              <select class="evaluation" data-points="5">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor promptly follow up with a callback in the event of a call disconnection?</td>
+            <td>
+              <select class="evaluation" data-points="5">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor inquire about cross-selling or upselling opportunities?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor effectively provide the customer with available options, where applicable?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor adhere to the correct procedures for transferring the call or managing the call hold process, if applicable?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor demonstrate empathy during the interaction?</td>
+            <td>
+              <select class="evaluation" data-points="5">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor maintain professionalism throughout the call?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Was the counselor's tone pleasant and courteous?</td>
+            <td>
+              <select class="evaluation" data-points="5">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor proactively offer additional assistance at the conclusion of the call?</td>
+            <td>
+              <select class="evaluation" data-points="10">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor end the call in a professional and respectful manner?</td>
+            <td>
+              <select class="evaluation" data-points="5">
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+          <tr>
+            <td>Did the counselor use inappropriate language, sarcasm, or cause the call to disconnect due to a critical error?</td>
+            <td>
+              <select class="evaluation" data-points="0">
+                <option value="">Select</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="NA">N/A</option>
+              </select>
+            </td>
+            <td class="points-cell"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+        <p><strong>Total Possible Points:</strong> <span id="totalPossiblePoints">100</span></p>
+        <p><strong>Total Points Scored:</strong> <span id="totalPointsScored">0</span></p>
+        <p><strong>Counselor Performance:</strong> <span id="performanceRating">0%</span></p>
+      </div>
+      
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter email address">
+      <button type="submit">Send Email</button>
+
+      <label for="comments">Comments</label>
+      <textarea id="comments" name="comments" rows="4" placeholder="Enter additional comments"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+<<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const evaluations = document.querySelectorAll('.evaluation');
+
+      evaluations.forEach(select => {
+        select.addEventListener('change', () => {
+          const pointsCell = select.closest('tr').querySelector('.points-cell');
+          const points = select.dataset.points;
+
+          if (select.value === 'Yes') {
+            pointsCell.textContent = `${points}`;
+          } else {
+            pointsCell.textContent = ''; // Clear the cell for "No" or "N/A"
+          }
+        });
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const evaluations = document.querySelectorAll('.evaluation');
+      const totalPossiblePoints = 100; // Adjust based on total possible points
+      const totalPointsScoredEl = document.getElementById('totalPointsScored');
+      const performanceRatingEl = document.getElementById('performanceRating');
+  
+      function calculatePerformance() {
+        let totalPointsScored = 0;
+  
+        evaluations.forEach(select => {
+          const points = parseInt(select.dataset.points, 10);
+          if (select.value === 'Yes') {
+            totalPointsScored += points;
+          }
+        });
+  
+        totalPointsScoredEl.textContent = totalPointsScored;
+        const performance = ((totalPointsScored / totalPossiblePoints) * 100).toFixed(2);
+        performanceRatingEl.textContent = `${performance}%`;
+      }
+  
+      evaluations.forEach(select => {
+        select.addEventListener('change', calculatePerformance);
+      });
+  
+      calculatePerformance(); // Initial calculation
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const evaluations = document.querySelectorAll('.evaluation');
+      const totalPossiblePoints = 100; // Adjust based on the total possible points
+      const totalPointsScoredEl = document.getElementById('totalPointsScored');
+      const performanceRatingEl = document.getElementById('performanceRating');
+
+      // Function to calculate the performance
+      function calculatePerformance() {
+        let totalPointsScored = 0;
+        let errorOccurred = false;
+
+        evaluations.forEach(select => {
+          const points = parseInt(select.dataset.points, 10);
+
+          // If "Yes" is selected for the critical error question, set overall score to 0
+          if (select.closest('tr').querySelector('td').textContent.includes('critical error') && select.value === 'Yes') {
+            errorOccurred = true;
+            totalPointsScored = 0; // Set total points to 0 if error occurred
+          }
+
+          if (!errorOccurred && select.value === 'Yes') {
+            totalPointsScored += points;
+          }
+        });
+
+        // If an error occurred, no need to calculate further
+        if (errorOccurred) {
+          totalPointsScoredEl.textContent = totalPointsScored;
+          performanceRatingEl.textContent = '0%';
+          return;
+        }
+
+        totalPointsScoredEl.textContent = totalPointsScored;
+        const performance = ((totalPointsScored / totalPossiblePoints) * 100).toFixed(2);
+        performanceRatingEl.textContent = `${performance}%`;
+      }
+
+      // Event listener for changes
+      evaluations.forEach(select => {
+        select.addEventListener('change', calculatePerformance);
+      });
+
+      calculatePerformance(); // Initial calculation
+    });
+  </script>
+   <script>
+    // Initialize EmailJS
+    emailjs.init('your_user_id'); // Replace with your EmailJS User ID
+
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Collect form data
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
+
+      // Send email via EmailJS
+      emailjs.send('your_service_id', 'your_template_id', formData)
+        .then(function(response) {
+          alert('Email sent successfully!');
+        }, function(error) {
+          alert('Email sending failed. Please try again.');
+        });
+    });
+  </script>
+  <script>
+    // Form submission handler
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      const formData = new FormData(this);
+
+      // Create an object to send the form data
+      const formObject = {};
+      formData.forEach((value, key) => {
+        formObject[key] = value;
+      });
+
+      // Replace 'your-web-app-url' with the URL from the Apps Script deployment
+      fetch('https://script.google.com/macros/s/your-web-app-url/exec', {
+        method: 'POST',
+        body: new URLSearchParams(formObject) // Send form data as URLSearchParams
+      })
+      .then(response => response.text())
+      .then(responseText => {
+        alert('Data submitted successfully!');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error submitting the form.');
+      });
+    });
+  </script>
+  
+</body>
+</html>
